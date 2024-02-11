@@ -2,7 +2,7 @@
 import React from 'react';
 
 function Bot({ bot, buttonText, handleClick, handleRelease, showDischarge }) {
-  const { id, name, model, avatar } = bot;
+  const { name, model, avatar } = bot;
 
   return (
     <div className="bot">

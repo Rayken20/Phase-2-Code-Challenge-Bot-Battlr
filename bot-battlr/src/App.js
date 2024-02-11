@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BotCollection from './Components/BotCollection';
 import YourBotArmy from './Components/YourBotArmy';
 import NavBar from './Components/NavBar';
-import Home from './Components/Home'; // Import the Home component
+import Home from './Components/Home'; 
 
 const App = () => {
   const [bots, setBots] = useState([]);
