@@ -2,14 +2,15 @@
 import React from 'react';
 
 function Bot({ bot, buttonText, handleClick, handleRelease, showDischarge }) {
-  const { id, name, model } = bot;
+  const { id, name, model, avatar } = bot;
 
   return (
     <div className="bot">
+      <img src={avatar} alt={name} /> 
       <h3>{name}</h3>
       <p>Model: {model}</p>
       <button onClick={handleClick}>{buttonText}</button>
-      {showDischarge && ( // Conditionally render the discharge button
+      {showDischarge && (
         <button onClick={handleRelease} className="delete-btn">
           Discharge (X)
         </button>

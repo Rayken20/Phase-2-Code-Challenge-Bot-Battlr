@@ -1,8 +1,9 @@
+// BotCollection.jsx
 import React, { useState } from "react";
 import Bot from "./Bot";
 
 function BotCollection({ bots, setYourBotArmy, yourBotArmy, handleDischarge }) {
-  const [startIndex, setStartIndex] = useState(0); // State to track the index of the first bot to display
+  const [startIndex, setStartIndex] = useState(0); 
 
   function addToArmy(bot) {
     if (!yourBotArmy.find((b) => b.id === bot.id)) {
@@ -15,12 +16,10 @@ function BotCollection({ bots, setYourBotArmy, yourBotArmy, handleDischarge }) {
   }
 
   function handleSeeMore() {
-    // Increment the start index by 5 upon clicking "See More"
     setStartIndex((prevIndex) => prevIndex + 5);
   }
 
   function handlePrevious() {
-    // Decrement the start index by 5 upon clicking "Previous"
     setStartIndex((prevIndex) => Math.max(prevIndex - 5, 0));
   }
 
@@ -34,6 +33,7 @@ function BotCollection({ bots, setYourBotArmy, yourBotArmy, handleDischarge }) {
           buttonText="Add to Army"
           handleClick={() => addToArmy(bot)}
           handleRelease={handleDischarge}
+          removeFromArmy={removeFromArmy} 
         />
       ))}
       <div>

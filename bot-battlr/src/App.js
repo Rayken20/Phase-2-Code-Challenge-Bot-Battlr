@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BotCollection from './Components/BotCollection';
-import YourBotArmy from  './Components/YourBotArmy'
+import YourBotArmy from './Components/YourBotArmy';
+import NavBar from './Components/NavBar';
+import Home from './Components/Home'; // Import the Home component
 
 const App = () => {
   const [bots, setBots] = useState([]);
@@ -23,12 +26,21 @@ const App = () => {
     fetchBots();
   }, []);
 
+  const handleDischarge = (id) => {
+    setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
+  };
+
   return (
-    <div>
-      <h1>Galactic Bot Army</h1>
-      <BotCollection bots={bots} setYourBotArmy={setYourBotArmy} yourBotArmy={yourBotArmy} />
-      <YourBotArmy yourBotArmy={yourBotArmy} setYourBotArmy={setYourBotArmy} />
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} /> {/* Update the Route for the home page */}
+          <Route path="/available-bots" element={<BotCollection bots={bots} setYourBotArmy={setYourBotArmy} yourBotArmy={yourBotArmy} handleDischarge={handleDischarge} />} />
+          <Route path="/your-bot-army" element={<YourBotArmy yourBotArmy={yourBotArmy} setYourBotArmy={setYourBotArmy} handleDischarge={handleDischarge} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

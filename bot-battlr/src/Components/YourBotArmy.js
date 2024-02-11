@@ -1,7 +1,8 @@
+// YourBotArmy.jsx
 import React from 'react';
 import Bot from './Bot';
 
-function YourBotArmy({ yourBotArmy, setYourBotArmy }) {
+function YourBotArmy({ yourBotArmy, setYourBotArmy, handleDischarge }) {
   function releaseFromArmy(id) {
     setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
   }
@@ -14,8 +15,8 @@ function YourBotArmy({ yourBotArmy, setYourBotArmy }) {
           key={bot.id}
           bot={bot}
           buttonText="Release from Army"
-          handleRelease={() => releaseFromArmy(bot.id)}
-          showDischarge // Pass a prop to indicate that discharge button should be shown
+          handleRelease={() => releaseFromArmy(bot.id)} 
+          showDischarge 
         />
       ))}
     </div>
