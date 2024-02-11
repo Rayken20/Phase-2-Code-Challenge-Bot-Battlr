@@ -1,10 +1,10 @@
 import React from 'react';
 import Bot from './Bot';
 
-const YourBotArmy = ({ yourBotArmy, setYourBotArmy }) => {
-  const releaseFromArmy = (id) => {
+function YourBotArmy({ yourBotArmy, setYourBotArmy }) {
+  function releaseFromArmy(id) {
     setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
-  };
+  }
 
   return (
     <div>
@@ -14,11 +14,12 @@ const YourBotArmy = ({ yourBotArmy, setYourBotArmy }) => {
           key={bot.id}
           bot={bot}
           buttonText="Release from Army"
-          handleClick={() => releaseFromArmy(bot.id)}
+          handleRelease={() => releaseFromArmy(bot.id)}
+          showDischarge // Pass a prop to indicate that discharge button should be shown
         />
       ))}
     </div>
   );
-};
+}
 
 export default YourBotArmy;
