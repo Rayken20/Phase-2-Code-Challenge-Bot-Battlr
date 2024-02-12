@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Components/Home'; 
 import BotCollection from './Components/BotCollection';
 import YourBotArmy from './Components/YourBotArmy';
 import NavBar from './Components/NavBar';
-import Home from './Components/Home'; 
+
 
 const App = () => {
   const [bots, setBots] = useState([]);
