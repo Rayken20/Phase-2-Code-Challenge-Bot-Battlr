@@ -48,7 +48,7 @@ Clone the repository to your local machine.
 Navigate to the project directory in your terminal.
 Install dependencies by running npm install.
 Start the development server with npm start.
-Open your browser and navigate to http://localhost:3000https://phase-2-code-challenge-bot-battlr-alpha.vercel.app/available-bots to view the application.
+Open your browser and navigate to https://phase-2-code-challenge-bot-battlr-rosy.vercel.app/ to view the application.
 
 ## Additional Notes:
 
