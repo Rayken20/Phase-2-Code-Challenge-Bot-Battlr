@@ -1,4 +1,3 @@
-// BotCollection.jsx
 import React, { useState } from "react";
 import Bot from "./Bot";
 
@@ -26,17 +25,20 @@ function BotCollection({ bots, setYourBotArmy, yourBotArmy, handleDischarge }) {
   return (
     <div>
       <h2>Available Bots</h2>
-      {bots.slice(startIndex, startIndex + 5).map((bot) => (
-        <Bot
-          key={bot.id}
-          bot={bot}
-          buttonText="Add to Army"
-          handleClick={() => addToArmy(bot)}
-          handleRelease={handleDischarge}
-          removeFromArmy={removeFromArmy} 
-        />
-      ))}
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+        {bots.slice(startIndex, startIndex + 5).map((bot) => (
+          <Bot
+            key={bot.id}
+            bot={bot}
+            buttonText="Add to Army"
+            handleClick={() => addToArmy(bot)}
+            handleRelease={handleDischarge}
+            removeFromArmy={removeFromArmy} 
+            style={{ margin: '20px' }} 
+          />
+        ))}
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
         {startIndex >= 5 && <button onClick={handlePrevious}>Previous</button>}
         {startIndex + 5 < bots.length && (
           <button onClick={handleSeeMore}>See More</button>

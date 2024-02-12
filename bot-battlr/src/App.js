@@ -26,7 +26,22 @@ const App = () => {
     fetchBots();
   }, []);
 
-  const handleDischarge = (id) => {
+  const handleDischarge = async (id) => {
+    try {
+      // Implement code to delete the bot from backend
+      // Example:
+      // const response = await fetch(`https://your-api-url/${id}`, { method: 'DELETE' });
+      // if (response.ok) {
+      //   setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
+      // } else {
+      //   console.error('Failed to delete bot from backend:', response.statusText);
+      // }
+    } catch (error) {
+      console.error('Error discharging bot:', error);
+    }
+  };
+
+  const handleReleaseFromArmy = (id) => {
     setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
   };
 
@@ -35,9 +50,9 @@ const App = () => {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} /> {/* Update the Route for the home page */}
+          <Route path="/" element={<Home />} />
           <Route path="/available-bots" element={<BotCollection bots={bots} setYourBotArmy={setYourBotArmy} yourBotArmy={yourBotArmy} handleDischarge={handleDischarge} />} />
-          <Route path="/your-bot-army" element={<YourBotArmy yourBotArmy={yourBotArmy} setYourBotArmy={setYourBotArmy} handleDischarge={handleDischarge} />} />
+          <Route path="/your-bot-army" element={<YourBotArmy yourBotArmy={yourBotArmy} setYourBotArmy={setYourBotArmy} handleReleaseFromArmy={handleReleaseFromArmy} />} />
         </Routes>
       </div>
     </Router>

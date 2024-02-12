@@ -1,4 +1,3 @@
-// Bot.jsx
 import React from 'react';
 
 function Bot({ bot, buttonText, handleClick, handleRelease, showDischarge }) {
@@ -11,7 +10,7 @@ function Bot({ bot, buttonText, handleClick, handleRelease, showDischarge }) {
       <p>Model: {model}</p>
       <button onClick={handleClick}>{buttonText}</button>
       {showDischarge && (
-        <button onClick={handleRelease} className="delete-btn">
+        <button onClick={handleRelease} style={{ backgroundColor: 'red', color: 'white' }}> 
           Discharge (X)
         </button>
       )}
