@@ -13,17 +13,18 @@ function YourBotArmy({ yourBotArmy, setYourBotArmy, handleReleaseFromArmy }) {
   };
 
   return (
-    <div>
+    <div className="bg-dark text-light py-4 text-center"> 
       <h2>Your Bot Army</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}> 
         {yourBotArmy.slice(startIndex, startIndex + 5).map(bot => (
-          <Bot
-            key={bot.id}
-            bot={bot}
-            buttonText="Release from Army"
-            handleRelease={() => handleReleaseFromArmy(bot.id)}
-            showDischarge 
-          />
+          <div key={bot.id} style={{ padding: '10px' }}> 
+            <Bot
+              bot={bot}
+              buttonText="Release from Army"
+              handleRelease={() => handleReleaseFromArmy(bot.id)}
+              showDischarge 
+            />
+          </div>
         ))}
       </div>
       <div>

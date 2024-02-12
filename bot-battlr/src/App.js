@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BotCollection from './Components/BotCollection';
 import YourBotArmy from './Components/YourBotArmy';
@@ -28,14 +28,12 @@ const App = () => {
 
   const handleDischarge = async (id) => {
     try {
-      // Implement code to delete the bot from backend
-      // Example:
-      // const response = await fetch(`https://your-api-url/${id}`, { method: 'DELETE' });
-      // if (response.ok) {
-      //   setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
-      // } else {
-      //   console.error('Failed to delete bot from backend:', response.statusText);
-      // }
+      const response = await fetch(`https://bot-api-20.vercel.app/bots/${id}`, { method: 'DELETE' });
+      if (response.ok) {
+        setYourBotArmy(yourBotArmy.filter(bot => bot.id !== id));
+      } else {
+        console.error('Failed to delete bot from backend:', response.statusText);
+      }
     } catch (error) {
       console.error('Error discharging bot:', error);
     }
